@@ -4,7 +4,13 @@
 const express = require("express");
 const app = express();
 const server = require("http").createServer(express); // create http server
-const io = require("socket.io")(server);
+const io = require("socket.io")(server,
+    {
+        cors: {
+            origin:"*"
+        }
+    });
+    
 const axios = require("axios");
 
 const PORT = process.env.PORT || 3000;
